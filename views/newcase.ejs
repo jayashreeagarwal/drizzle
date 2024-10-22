@@ -1,0 +1,37 @@
+
+<div class="row justify-content-center">
+
+    <% if(infoSubmitObj != '') { %>
+      <div class="col-8 alert alert-success" role="alert">
+        <%= infoSubmitObj %>
+      </div>
+    <% } %>
+  
+    <% if(infoErrorsObj != '') { %>
+      <div class="col-8 alert alert-danger" role="alert">
+        <%= infoErrorsObj[0].message %>
+      </div>
+    <% } %>
+  
+    <div class="col-8">
+  
+      <form action="/new-case" enctype="multipart/form-data" method="POST">
+      
+        <div class="row g-3">
+  
+          <div class="col-12">
+            <label for="name" class="form-label">Case Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+          </div>
+
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+  
+        </div>
+      
+      </form>
+  
+    </div>
+  </div>

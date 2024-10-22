@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+
+    <% if(infoSubmitObj != '') { %>
+      <div class="col-8 alert alert-success" role="alert">
+        <%= infoSubmitObj %>
+      </div>
+    <% } %>
+  
+    <% if(infoErrorsObj != '') { %>
+      <div class="col-8 alert alert-danger" role="alert">
+        <%= infoErrorsObj[0].message %>
+      </div>
+    <% } %>
+  
+    <div class="col-8">
+  
+      <form action="/new-file" enctype="multipart/form-data" method="POST">
+      
+        <div class="row g-3">
+            <div class="col-12">
+                <label for="file">+ Add Case File</label>
+                <div class="ingredientList">
+                  <div class="ingredeintDiv mb-1">
+                    <input type="file" class="form-control" name="file" accept="pdf/*">
+                </div>
+                </div>
+              </div>
+            
+              <div class="col-12">
+                <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ File</button>
+              </div>
+        </div>
+      
+      </form>
+  
+    </div>
+  </div>
