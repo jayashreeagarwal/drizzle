@@ -1,0 +1,30 @@
+<!-- content for page -->
+<center><div class="d-flex py-2 justify-content-center align-items-center">
+    <h2>Search Case File</h2>
+</div>
+<!-- institute -->
+<div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 text-end mb-5">
+    <form method="POST" action="/search">
+        <input type="search" name="searchTerm" class="form-control" placeholder="Search.." aria-label="Search" aria-describedby="search-addon">
+    </form>
+</div>
+
+<div class="col-8 align-items-center justify-content-center mb-1">
+<h3 class="text-start">Recent Cases</h3>
+<% if(cases != '') { %>
+    <% cases.forEach(function(case,index) { %> 
+<ul class="list-group p-2 mb-4">
+    <li class="list-group-item">
+        <a href="case/<%- case._id %>">
+            <%- case.name %>
+        </a>
+    </li>
+</ul>
+<% }) %>
+<% } else { %>
+    <p>No cases found.</p>
+<%  } %>
+
+</div>
+
+</center>
