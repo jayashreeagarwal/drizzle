@@ -6,4 +6,4 @@ const caseSchema = new mongoose.Schema({
         required: 'This field is required.'
     },
 });
-module.exports = mongoose.model('Files', caseSchema);
+module.exports = mongoose.model('Cases', caseSchema);

@@ -12,11 +12,11 @@
 <div class="col-8 align-items-center justify-content-center mb-1">
 <h3 class="text-start">Recent Cases</h3>
 <% if(cases != '') { %>
-    <% cases.forEach(function(case,index) { %> 
+    <% cases.forEach(function(item,index) { %> 
 <ul class="list-group p-2 mb-4">
     <li class="list-group-item">
-        <a href="case/<%- case._id %>">
-            <%- case.name %>
+        <a href="case/<%- item._id %>">
+            <%- item.name %>
         </a>
     </li>
 </ul>

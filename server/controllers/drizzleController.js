@@ -13,7 +13,7 @@ exports.homepage = async(req, res) => {
 
 exports.dashboard = async(req,res) =>  { 
     try {
-        const limitnumber = 10;
+        const limitnumber = 32;
         const cases = await casedata.find({}).limit(limitnumber);
         res.render('dashboard', { title: 'Drizzle', layout: userLayout, cases } );
     } catch (error) {
@@ -27,8 +27,8 @@ exports.exploreCaseById = async(req, res) => {
     try {
         let caseId = req.params.id;
         const limitNumber = 32;
-        const categoryById = await Recipe.find({'case': caseId}).limit(limitNumber);
-        res.render('case', { title: 'Drizzle', categoryById, layout: userLayout });
+        const caseById = await Cases.find({'case': caseId}).limit(limitNumber);
+        res.render('case', { title: 'Drizzle', caseById, layout: userLayout });
     } catch (error) {
         res.status(500).send({message: error.message || "Error Occured" })
     }

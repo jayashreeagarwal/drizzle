@@ -1,0 +1,32 @@
+<!--header-->
+<header class="d-flex flex-wrap align-items-center justify-content-between py-2 mb-4 border-bottom">
+    <h1>Drizzle</h1>
+    <div class="text-end ms-auto">
+       <button type="button" class="btn btn-outline-light">Sign In</button>
+       <button type="button" class="btn btn-light" data-toggle="modal" data-target="#loginModal">Log In</button>
+    </div>
+</header>
+<!-- Modal -->
+<div class="modal fade" id="newCaseModal" tabindex="-1" aria-labelledby="newCaseModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark">
+          <div class="modal-header border-secondary">
+              <h5 class="modal-title">Create New Case</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form id="newCaseForm">
+                  <div class="mb-3">
+                      <label for="caseName" class="form-label">Case Name</label>
+                      <input type="text" class="form-control" id="caseName" name="caseName" required>
+                  </div>
+                  <div class="modal-footer border-secondary">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Create</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>  
+  

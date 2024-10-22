@@ -13,8 +13,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300,500&display=swap">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" defer src="/js/script.js"></script>
-</head>
+      <!-- ... other head elements ... -->
+      <style>
+          .modal-backdrop {
+              background-color: rgba(0, 0, 0, 0.5);
+          }
+          
+          .modal {
+              background: none;
+          }
+          
+          .modal-open {
+              overflow: auto !important;
+              padding-right: 0 !important;
+          }
+      </style>
+  </head>
 
 <body class="body">
       <div class="content-wrapper">
@@ -27,6 +41,8 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="/js/script.js"></script>
 </body>
 </html>

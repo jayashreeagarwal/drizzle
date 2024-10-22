@@ -1,0 +1,29 @@
+
+<div class="col-8 align-items-center justify-content-center mb-1">
+    <h3 class="text-start">Case Files</h3>
+    <% if(files != '') { %>
+        <% files.forEach(function(files,index) { %> 
+    <ul class="list-group p-2 mb-4">
+        <li class="list-group-item">
+            <div class="justify-content-between">
+            <%- files.name %>
+            <div class="col-6">
+            <a href="#" class="col-4"> View File</a>
+            <a href="#" class="col-4">
+                <i class="bi bi-download"></i> Download File
+            </a>
+            <a href="#" class="col-4">
+                <i class="bi bi-history"></i> Transaction History
+            </a>
+        <button class="">Authenticate File</button>
+    </div>
+        </div>
+        </li>
+    </ul>
+    <% }) %>
+<% } %>
+
+<div class="text-center p-2 ms-auto">
+    <button type="button" class="btn btn-outline-light px-lg-5 px-md-3 px-sm-2 px-xs-1 py-1" data-toggle="modal" data-target="#exampleModal">+ Add New Case File</button>
+</div>
+

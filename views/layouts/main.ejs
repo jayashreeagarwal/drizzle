@@ -22,27 +22,13 @@
 
       <div class="content-wrapper">
     <div class="container-fluid">                
-        <!--header-->
-                <header class="d-flex flex-wrap align-items-center justify-content-between py-2 mb-4 border-bottom">
-                    <h1>Drizzle</h1>
-                    <div class="text-end ms-auto">
-                       <button type="button" class="btn btn-outline-primary">Sign In</button>
-                       <button type="button" class="btn btn-light">Log In</button>
-                    </div>
-                </header>
-        
+        <%- include('../partials/header.ejs')  %>
                 <main>
                     <%- body %>
                 </main>
 
-                    <!--footer-->
-        <footer class="d-flex flex-wrap align-items-center justify-content-between py-2 border-top">
-            <p class="mt-2">Copyright © Drizzle.</p>
-            <div class="text-end ms-auto">
-                <button type="button" class="btn btn-dark btn-sm pl-2">Terms of use</button>
-                <button type="button" class="btn btn-dark btn-sm">Privacy policy</button>
-            </div>
-        </footer>
+                <%- include('../partials/footer.ejs')  %>
+
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

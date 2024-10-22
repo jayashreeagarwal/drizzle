@@ -1,20 +1,46 @@
+<!-- header_user.ejs -->
 <header class="d-flex flex-wrap align-items-center justify-content-between py-2 mt-2">
-    <div class="btn-group">
-        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Username
+    <!-- Dropdown -->
+    <div class="dropdown">
+        <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Jeswin Johnson
         </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Log Out</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
-        </div>
-      </div>
-<div class="text-end py-2 ms-auto">
-    <button type="button" class="btn btn-outline-light px-lg-5 px-md-3 px-sm-2 px-xs-1 py-1">+ Add New Case File</button>
-</div>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Log Out</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+        </ul>
+    </div>
+
+    <!-- Modal trigger button -->
+    <div class="text-end py-2 ms-auto">
+        <button type="button" class="btn btn-outline-light px-lg-5 px-md-3 px-sm-2 px-xs-1 py-1" 
+                data-bs-toggle="modal" data-bs-target="#newCaseModal">
+            + Create New Case
+        </button>
+    </div>
 </header>
 
+<!-- Modal -->
+<div class="modal" id="newCaseModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create New Case</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="newCaseForm">
+                    <div class="mb-3">
+                        <label for="caseName" class="form-label">Case Name</label>
+                        <input type="text" class="form-control" id="caseName" name="caseName" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
