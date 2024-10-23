@@ -66,6 +66,7 @@ async function createTrustline(caseSecret, casePublicKey, assetCode, userPublic)
       .addOperation(DiamSdk.Operation.changeTrust({
         asset: asset,
       }))
+    .addMemo(DiamSdk.Memo.text(`Trustline Establishment`.substring(0, 28)))
       .setTimeout(30)
       .build();
 
@@ -188,27 +189,47 @@ async function authenticateFile(filePath, fileFormat, hash) {
 }
 
 async function getLog(casePublicKey) {
-    try {
-        const response = await axios.get(`https://diamtestnet.diamcircle.io/accounts/${casePublicKey}/transactions`);
-        if (response.status == 200) {
-            var outputData = []
-            for (var x = 0; x <= response.data._embedded.records.length; x++){
-                console.log(x)
-                outputData.push({
-                    "id": response.data._embedded.records[x].id,
-                    "created_at": response.data._embedded.records[x].created_at,
-                    "memo": memo_type == "none" ? "None" : response.data._embedded.records[x].memo
-                })
-            }
-            return outputData
-        }
-    } catch {
-        throw "FUCKKKKKKKK"
+    const response = await axios.get(`https://diamtestnet.diamcircle.io/accounts/${casePublicKey}/transactions`);
+    if (response.status == 200) {
+        var outputData = []
+        response.data._embedded.records.forEach(x => {
+            outputData.push({
+                "id": x.id,
+                "created_at": x.created_at,
+                "memo": x.memo_type == "none" ? "None" : x.memo
+            })
+        });
+
+        return outputData
+    }
+}
+
+async function getLogInfo(logID) {
+    const response = await axios.get(`https://diamtestnet.diamcircle.io/transactions/${logID}/operations`);
+    if (response.status == 200) {
+        var outputData = []
+        response.data._embedded.records.forEach(x => {
+            outputData.push({
+                "id": x.id,
+                "paging_token": x.paging_token,
+                "transaction_successful": x.transaction_successful,
+                "source_account": x.source_account,
+                "type": x.type,
+                "created_at": x.created_at,
+                "transaction_hash": x.transaction_hash,
+                "asset_type": x.asset_type,
+                "asset_code": x.asset_code,
+                "asset_issuer": x.asset_issuer,
+                "from": x.from,
+                "to": x.to,
+            })
+        });
+
+        return outputData
     }
 }
 
 async function main(){
-
     // Create User Accounts
 
     // userAcc = await accountGenrator()
@@ -219,7 +240,7 @@ async function main(){
 
     // Upload Data to IPFS
     // const contentHash = await fileUploadToIPFS("D:\\Programming\\Projects\\Diamante Hackathon\\test.png", "evidance12", "image/png")
-    
+
     // console.log("content hash : " + contentHash["Hash"])
 
     // Create Trustline between case and user
@@ -238,7 +259,10 @@ async function main(){
     // console.log(await authenticateFile("D:\\Programming\\Projects\\Diamante Hackathon\\test.png", "image/png", "QmbBrQ8iM6QM4akiWVsPyptivpWhGYvfELXbyeWXz7mqki"))
 
     // Get log
-    console.log(await getLog("GBMEOODDW5VTDSMMQMDCDSYZF7UVUHGRMFHDTZDBHYFV46KO4OZNDCCC"))
+    // console.log(await getLog("GBMEOODDW5VTDSMMQMDCDSYZF7UVUHGRMFHDTZDBHYFV46KO4OZNDCCC"))
+
+    // Get individual log info
+    // console.log(await getLogInfo("5189b9c5671ac0a92796fa04fa8b52af1a9b408de1607564337d0b8ccce60a9d"))
 }
 
 main()
